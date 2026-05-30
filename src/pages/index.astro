@@ -1,0 +1,894 @@
+---
+// Adezive Tirana – Faqja Kryesore
+---
+
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Adezive Tirana – Zgjidhje profesionale adezivësh për ndërtim, industri dhe shtëpi." />
+  <title>Adezive Tirana – Ngjit më Mirë. Ndërto më Mirë.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #ea580c;
+      --orange-light: #fed7aa;
+      --orange-dark: #9a3412;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--gray-900);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+
+    .logo { font-size: 1.2rem; font-weight: 800; color: var(--gray-900); }
+    .logo span { color: var(--orange); }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-700); transition: color .2s; }
+    .nav-links a:hover { color: var(--orange); }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      transition: background .2s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #c2410c; }
+
+    .btn-outline {
+      border: 2px solid #fff;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 10px;
+      transition: background .2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* mobile hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--gray-700);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* mobile drawer */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: .25rem;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
+      padding: 1rem 5%;
+      z-index: 49;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      padding: .65rem .75rem;
+      border-radius: 8px;
+      transition: background .2s, color .2s;
+    }
+    .mobile-menu a:hover { background: var(--gray-50); color: var(--orange); }
+    .mobile-menu .btn-primary { text-align: center; margin-top: .5rem; padding: .75rem; border-radius: 10px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 60%, #431407 100%);
+      color: #fff;
+      padding: 80px 5% 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: var(--orange);
+      border-radius: 50%;
+      opacity: .08;
+      filter: blur(60px);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: #fb923c;
+      border-radius: 50%;
+      opacity: .06;
+      filter: blur(80px);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(234,88,12,.15);
+      border: 1px solid rgba(234,88,12,.3);
+      color: #fdba74;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #fb923c; }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: #fb923c; }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #d1d5db;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    /* ── CAROUSEL ── */
+    .hero-carousel {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 32px 64px rgba(0,0,0,.4);
+      aspect-ratio: 4/3;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.4,0,.2,1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 55%);
+      z-index: 1;
+    }
+
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-1 .slide-bg { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%); }
+    .slide-2 .slide-bg { background: linear-gradient(135deg, #3b1f0a 0%, #ea580c 100%); }
+    .slide-3 .slide-bg { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
+    .slide-4 .slide-bg { background: linear-gradient(135deg, #3b2900 0%, #d97706 100%); }
+
+    .slide-bg svg { width: 55%; height: 55%; opacity: .18; }
+
+    .slide-content { position: relative; z-index: 2; }
+
+    .slide-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: .6rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .slide-content h3 { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: .35rem; }
+    .slide-content p { font-size: 0.8rem; color: rgba(255,255,255,.75); line-height: 1.5; margin: 0; }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s;
+      backdrop-filter: blur(4px);
+    }
+    .carousel-btn:hover { background: rgba(255,255,255,.3); }
+    .carousel-btn svg { width: 16px; height: 16px; }
+    .carousel-prev { left: 12px; }
+    .carousel-next { right: 12px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 6px;
+    }
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.4);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background .2s, transform .2s;
+    }
+    .carousel-dot.active { background: #fff; transform: scale(1.3); }
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--orange);
+      color: #fff;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      padding: 2.5rem 5%;
+      gap: 1rem;
+    }
+    .stats .stat-value { font-size: 2.25rem; font-weight: 800; }
+    .stats .stat-label { font-size: 0.8rem; opacity: .85; margin-top: 4px; }
+
+    /* ── SECTIONS COMMON ── */
+    section { padding: 80px 5%; }
+    .section-tag {
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 800; color: var(--gray-900); margin-bottom: .75rem; }
+    .section-sub { color: var(--gray-500); font-size: 1rem; max-width: 540px; line-height: 1.7; }
+
+    .section-head { margin-bottom: 3.5rem; }
+    .section-head.center { text-align: center; }
+    .section-head.center .section-sub { margin: 0 auto; }
+
+    /* ── WHY US ── */
+    .why { background: #fff; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+
+    .feature-card {
+      padding: 1.75rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 16px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .feature-card:hover { border-color: var(--orange-light); box-shadow: 0 8px 30px rgba(234,88,12,.08); }
+    .feature-icon {
+      width: 48px; height: 48px;
+      background: #fff7ed;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .feature-icon svg { width: 24px; height: 24px; color: var(--orange); }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+    .feature-card p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* ── PRODUCTS ── */
+    .products { background: var(--gray-50); }
+
+    .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+
+    .category-card { padding: 1.75rem; border-radius: 16px; transition: transform .2s, box-shadow .2s; display: block; }
+    .category-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.08); }
+    .category-card h3 { font-size: 1.05rem; font-weight: 700; margin: 0.75rem 0 0.4rem; }
+    .category-card p { font-size: 0.8rem; line-height: 1.6; opacity: .7; }
+    .cat-arrow { font-size: 0.8rem; font-weight: 700; margin-top: 1rem; display: block; }
+
+    .cat-1 { background: #fff7ed; color: #9a3412; }
+    .cat-2 { background: #eff6ff; color: #1e40af; }
+    .cat-3 { background: #f0fdf4; color: #166534; }
+    .cat-4 { background: #fefce8; color: #854d0e; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: #fff; }
+
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+
+    .testimonial-card {
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+    .stars { display: flex; gap: 3px; margin-bottom: 1rem; }
+    .star { color: #f59e0b; font-size: 1rem; }
+    .testimonial-card blockquote { font-size: 0.9rem; color: var(--gray-700); line-height: 1.7; font-style: italic; margin-bottom: 1.25rem; }
+    .testimonial-author { display: flex; align-items: center; gap: .75rem; }
+    .avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .author-name { font-weight: 700; font-size: 0.875rem; }
+    .author-role { font-size: 0.75rem; color: var(--gray-500); }
+
+    /* ── CONTACT ── */
+
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--orange) 0%, #c2410c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 5%;
+    }
+    .cta-banner h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: .75rem; }
+    .cta-banner p { color: rgba(255,255,255,.85); font-size: 1.05rem; margin-bottom: 2.5rem; }
+    .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+    .btn-white { background: #fff; color: var(--orange); font-weight: 700; padding: .85rem 2rem; border-radius: 10px; font-size: .95rem; transition: background .2s; }
+    .btn-white:hover { background: #fff7ed; }
+
+    /* ── FOOTER ── */
+    footer { background: #0f172a; color: #94a3b8; padding: 60px 5% 30px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 1rem; }
+    .footer-logo { font-size: 1.25rem; font-weight: 800; color: #fff; }
+    .footer-logo span { color: #fb923c; }
+    .footer-col h4 { color: #fff; font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-col ul a { font-size: 0.85rem; transition: color .2s; }
+    .footer-col ul a:hover { color: #fb923c; }
+    .footer-bottom { border-top: 1px solid #1e293b; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; flex-wrap: wrap; gap: .75rem; }
+
+    .social-links { display: flex; gap: .75rem; }
+    .social-link {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .social-link:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .social-link svg { width: 16px; height: 16px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-carousel { max-width: 480px; margin: 0 auto; width: 100%; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .stats { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      section { padding: 60px 5%; }
+      .hero { padding: 60px 5% 80px; }
+
+      /* hero mobile tweaks */
+      .hero-badge { display: none; }
+      .hero-actions { flex-wrap: nowrap; }
+      .hero-actions a {
+        flex: 1;
+        text-align: center;
+        padding: .6rem 1rem !important;
+        font-size: .8rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-carousel { aspect-ratio: 3/2; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">Adezive<span>Tirana</span></a>
+    <div class="nav-links">
+      <a href="#pse-ne">Pse Ne</a>
+      <a href="#produktet">Produktet</a>
+      <a href="#vleresimet">Vlerësime</a>
+    </div>
+    <a href="#kontakt" class="btn-primary nav-cta">Kërko Ofertë</a>
+    <button class="hamburger" id="hamburger" aria-label="Hap menunë">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- MOBILE MENU (inside nav so it sticks on scroll) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#pse-ne" class="mobile-link">Pse Ne</a>
+      <a href="#produktet" class="mobile-link">Produktet</a>
+      <a href="#vleresimet" class="mobile-link">Vlerësime</a>
+      <a href="#kontakt" class="btn-primary mobile-link">Kërko Ofertë</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <!-- Majtas: tekst -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Furnizuesi Nr. 1 i Adezivëve në Shqipëri
+        </div>
+        <h1>Ngjit më Mirë.<br/><span>Ndërto më Mirë.</span></h1>
+        <p>Adezivë profesionalë për ndërtim, industri dhe specialitete — të besuar nga mijëra profesionistë në të gjithë Shqipërinë. Mbështetje teknike dhe dërgim kombëtar.</p>
+        <div class="hero-actions">
+          <a href="#produktet" class="btn-primary" style="padding:.85rem 2rem;font-size:.95rem;border-radius:10px;">Shiko Produktet</a>
+          <a href="#kontakt" class="btn-outline">Kërko Ofertë</a>
+        </div>
+      </div>
+
+      <!-- Djathtas: carousel -->
+      <div class="hero-carousel" id="heroCarousel">
+        <div class="carousel-track" id="carouselTrack">
+
+          <!-- Rrëshqitje 1 – Ndërtim -->
+          <div class="carousel-slide slide-1">
+            <div class="slide-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/>
+              </svg>
+            </div>
+            <div class="slide-content">
+              <span class="slide-tag">Ndërtim</span>
+              <h3>Adezivë Pllakash & Strukturorë</h3>
+              <p>Adezivë C1/C2, membrare hidroizoluese dhe sisteme ngjitëse fasade për çdo ndërtim.</p>
+            </div>
+          </div>
+
+          <!-- Rrëshqitje 2 – Industriale -->
+          <div class="carousel-slide slide-2">
+            <div class="slide-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div class="slide-content">
+              <span class="slide-tag">Industriale</span>
+              <h3>Epoksi & Lidhje Strukturore</h3>
+              <p>Epoksi me dy komponentë, cianoacrilat dhe adezivë PU fleksibël për prodhim dhe montim.</p>
+            </div>
+          </div>
+
+          <!-- Rrëshqitje 3 – Sealante -->
+          <div class="carousel-slide slide-3">
+            <div class="slide-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+              </svg>
+            </div>
+            <div class="slide-content">
+              <span class="slide-tag">Sealante</span>
+              <h3>Silikone & Izolues</h3>
+              <p>Silikone neutrale, anti-myk për sanitare, produkte rezistente ndaj zjarrit dhe fugë PU të lyeshme.</p>
+            </div>
+          </div>
+
+          <!-- Rrëshqitje 4 – Dru & Dysheme -->
+          <div class="carousel-slide slide-4">
+            <div class="slide-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>
+              </svg>
+            </div>
+            <div class="slide-content">
+              <span class="slide-tag">Dru & Dysheme</span>
+              <h3>Parket & Mbajtës Dyshemeje</h3>
+              <p>Ngjitës druri PVA D3, adezivë elastik STP për parket dhe sisteme ngjitje tapeticerie me bazë uji.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Rrëshqitja e mëparshme">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+          </svg>
+        </button>
+        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Rrëshqitja tjetër">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+          </svg>
+        </button>
+
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" data-index="0" aria-label="Rrëshqitja 1"></button>
+          <button class="carousel-dot" data-index="1" aria-label="Rrëshqitja 2"></button>
+          <button class="carousel-dot" data-index="2" aria-label="Rrëshqitja 3"></button>
+          <button class="carousel-dot" data-index="3" aria-label="Rrëshqitja 4"></button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATISTIKAT -->
+  <div class="stats">
+    <div><div class="stat-value">20+</div><div class="stat-label">Vjet Eksperiencë</div></div>
+    <div><div class="stat-value">500+</div><div class="stat-label">Produkte</div></div>
+    <div><div class="stat-value">10K+</div><div class="stat-label">Klientë</div></div>
+    <div><div class="stat-value">99%</div><div class="stat-label">Kënaqësi</div></div>
+  </div>
+
+  <!-- PSE NE -->
+  <section class="why" id="pse-ne">
+    <div class="section-head center">
+      <div class="section-tag">Pse të Na Zgjidhni</div>
+      <h2 class="section-title">Ndërtuar për Profesionistët</h2>
+      <p class="section-sub">Dy dekada eksperiencë në ofrimin e zgjidhjeve ngjitëse që mund t'i besoni, çdo herë.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+          </svg>
+        </div>
+        <h3>Cilësi e Certifikuar</h3>
+        <p>Certifikuar ISO 9001. Të gjitha produktet plotësojnë standardet e BE-së për produkte ndërtimi.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+          </svg>
+        </div>
+        <h3>Dërgim i Shpejtë</h3>
+        <p>Nisje të njëjtën ditë për porositë para mesditës. Mbulojmë të gjitha rajonet e Shqipërisë.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+          </svg>
+        </div>
+        <h3>Mbështetje Eksperte</h3>
+        <p>Këshilltarë teknikë të certifikuar ju ndihmojnë të zgjidhni produktin e duhur për çdo punë.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3>Çmime Konkurruese</h3>
+        <p>Çmimet më të mira të tregut me zbritje shumice për kontraktistë dhe shpërndarës.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUKTET -->
+  <section class="products" id="produktet">
+    <div class="section-head center">
+      <div class="section-tag">Gama Jonë</div>
+      <h2 class="section-title">Kategoritë e Produkteve</h2>
+      <p class="section-sub">Portofol i plotë për çdo aplikim ngjitës — nga pllakat te industria e rëndë.</p>
+    </div>
+    <div class="categories-grid">
+      <a href="#kontakt" class="category-card cat-1">
+        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/>
+        </svg>
+        <h3>Ndërtim</h3>
+        <p>Adezivë pllakash, grout, hidroizolim dhe agjentë ngjitës strukturorë.</p>
+        <span class="cat-arrow">Pyetni →</span>
+      </a>
+      <a href="#kontakt" class="category-card cat-2">
+        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>
+        </svg>
+        <h3>Industriale</h3>
+        <p>Epoksi, cianoacrilat dhe adezivë strukturorë për prodhim.</p>
+        <span class="cat-arrow">Pyetni →</span>
+      </a>
+      <a href="#kontakt" class="category-card cat-3">
+        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+        </svg>
+        <h3>Sealante & Silikone</h3>
+        <p>Silikone rezistente ndaj motit, izolues PU dhe produkte rezistente ndaj zjarrit.</p>
+        <span class="cat-arrow">Pyetni →</span>
+      </a>
+      <a href="#kontakt" class="category-card cat-4">
+        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>
+        </svg>
+        <h3>Dru & Dysheme</h3>
+        <p>Ngjitës druri PVA, adezivë parket dhe sisteme ngjitje tapeticerie.</p>
+        <span class="cat-arrow">Pyetni →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- VLERËSIMET -->
+  <section class="testimonials" id="vleresimet">
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"Kemi përdorur produktet e Adezive Tirana për 5+ vjet. Cilësia është vazhdimisht e shkëlqyer dhe dorëzimi gjithmonë në kohë."</blockquote>
+        <div class="testimonial-author">
+          <div class="avatar">AH</div>
+          <div>
+            <div class="author-name">Arben Hoxha</div>
+            <div class="author-role">Kontraktist, Tiranë</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"Gama e adezivëve të pllakave është e jashtëzakonshme. Ngjitje perfekte, e lehtë për t'u punuar — dhe ekipi teknik gjithmonë rekomandon produktin e duhur."</blockquote>
+        <div class="testimonial-author">
+          <div class="avatar">MG</div>
+          <div>
+            <div class="author-name">Mirela Gjoka</div>
+            <div class="author-role">Dizajnere Interieri</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"Gama e epoksit industrial është e nivelit të lartë. Kaloimë tek Adezive Tirana dy vjet më parë dhe performanca e linjës tonë u përmirësua ndjeshëm."</blockquote>
+        <div class="testimonial-author">
+          <div class="avatar">BK</div>
+          <div>
+            <div class="author-name">Blerim Krasniqi</div>
+            <div class="author-role">Menaxher Fabrike, Durrës</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BANNER CTA -->
+  <section class="cta-banner">
+    <h2>Gati të gjeni adezivit e duhur?</h2>
+    <p>Këshilla eksperte, oferta të personalizuara dhe çmime shumice — na kontaktoni sot.</p>
+    <div class="cta-actions">
+      <a href="tel:+355691234567" class="btn-white">Na Telefononi</a>
+      <a href="#kontakt" class="btn-outline">Dërgoni Mesazh</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Adezive<span>Tirana</span></div>
+        <p>Furnizuesi kryesor shqiptar i adezivëve profesionalë. Produkte cilësore, mbështetje eksperte dhe dërgim i besueshëm kombëtar që nga viti 2004.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigim</h4>
+        <ul>
+          <li><a href="#">Kryefaqja</a></li>
+          <li><a href="#pse-ne">Pse Ne</a></li>
+          <li><a href="#produktet">Produktet</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Produktet</h4>
+        <ul>
+          <li><a href="#produktet">Ndërtim</a></li>
+          <li><a href="#produktet">Industriale</a></li>
+          <li><a href="#produktet">Sealante</a></li>
+          <li><a href="#produktet">Dru & Dysheme</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="#">Rruga e Kavajës 123, Tiranë</a></li>
+          <li><a href="tel:+355691234567">+355 69 123 4567</a></li>
+          <li><a href="mailto:info@adezivetirana.al">info@adezivetirana.al</a></li>
+          <li><a href="#">E Hënë – E Premte: 8:00 – 17:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 Adezive Tirana. Të gjitha të drejtat e rezervuara.</span>
+
+      <!-- Social media icons -->
+      <div class="social-links">
+        <!-- Facebook -->
+        <a href="#" class="social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="#" class="social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/355691234567" class="social-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </a>
+      </div>
+
+      <span>Bërë me cilësi në Shqipëri.</span>
+    </div>
+  </footer>
+
+  <script>
+    // ── Carousel ──
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const total = 4;
+    let current = 0;
+    let timer;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAuto() { timer = setInterval(next, 4000); }
+    function resetAuto() { clearInterval(timer); startAuto(); }
+
+    document.getElementById('carouselNext').addEventListener('click', () => { next(); resetAuto(); });
+    document.getElementById('carouselPrev').addEventListener('click', () => { prev(); resetAuto(); });
+    dots.forEach(dot => dot.addEventListener('click', () => { goTo(+dot.dataset.index); resetAuto(); }));
+    startAuto();
+
+    // ── Mobile menu ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // close menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
